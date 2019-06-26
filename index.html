@@ -21,36 +21,50 @@
                     <h1 class="user-info__name">Jaques Causteau</h1>
                     <p class="user-info__job">Sailor, Researcher</p>
                 </div>
-                <button class="button user-info__button">+</button>
+                <button name="add" class="button user-info__button">+</button>
+                <button name="edit" class="button user-info__button">Edit</button>
             </div>
         </div>
         <div class="places-list root__section">
 
-            <!-- Пример вёрстки карточки: -->
 
-            <!-- <div class="place-card">
-                <div class="place-card__image"
-                    style="background-image: url(https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg)">
-                    <button class="place-card__delete-icon"></button>
-                </div>
-                <div class="place-card__description">
-                    <h3 class="place-card__name">Камчатка</h3>
-                    <button class="place-card__like-icon"></button>
-                </div>
-            </div> -->
 
-            <!-- конец примера. -->
+            <template class="template">
+
+                <div class="place-card">
+                    <div class="place-card__image">
+                        <button class="place-card__delete-icon"></button>
+                    </div>
+                    <div class="place-card__description">
+                        <h3 class="place-card__name"></h3>
+                        <button class="place-card__like-icon"></button>
+                    </div>
+                </div>
+            </template>
+
+
 
         </div>
-        <div class="popup">
+        <div class="popup popup-addCard">
             <div class="popup__content">
-                <img src="./images/close.svg" alt="" class="popup__close">
+                <img src="./images/close.svg" alt="" class="popup__close popup__close-add">
                 <h3 class="popup__title">Новое место</h3>
                 <form class="popup__form" name="new">
                     <input type="text" name="name" class="popup__input popup__input_type_name" placeholder="Название">
-                    <input type="text" name="link" class="popup__input popup__input_type_link-url"
-                        placeholder="Ссылка на картинку">
-                    <button type="submit" class="button popup__button">+</button>
+                    <input type="text" name="link" class="popup__input popup__input_type_link-url" placeholder="Ссылка на картинку">
+                    <button name="addPopup" type="submit" class="button popup__button">+</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup popup-editProfile">
+            <div class="popup__content">
+                <img src="./images/close.svg" alt="" class="popup__close popup__close-edit">
+                <h3 class="popup__title">Редактировать профиль</h3>
+                <form class="popup__form" name="second">
+                    <input type="text" name="yourName" class="popup__input popup__input_type_yourName" placeholder="Имя">
+                    <input type="text" name="aboutYou" class="popup__input popup__input_type_aboutYou" placeholder="О себе">
+                    <button name="savePopup" type="submit" class="button popup__button">Сохранить</button>
                 </form>
             </div>
         </div>
