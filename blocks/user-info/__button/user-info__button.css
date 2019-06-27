@@ -4,11 +4,6 @@
   right: 0;
 }
 
-.user-info__button:last-child {
-  left: 188px;
-  top: 175px;
-}
-
 @media screen and (max-width: 980px) {
   .user-info__button {
     position: static;

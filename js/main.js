@@ -42,11 +42,8 @@ const initialCards = [{
     }
 ];
 const placesList = document.querySelector('.places-list');
-
-// const popupAddBtn = document.querySelector('.user-info__button');
 const popupAddBtn = document.getElementsByName('add')[0];
 const popupEditProfileBtn = document.getElementsByName('edit')[0];
-
 const popupCloseBtnAdd = document.querySelector('.popup__close-add');
 const popupCloseBtnEdit = document.querySelector('.popup__close-edit');
 const addButton = document.getElementsByName('addPopup')[0];
@@ -63,7 +60,6 @@ const toggPopup = togglePopup();
  * @return {HTMLDivElement} fragment
  */
 function createDefaultCard(name, url) { // card create
-
     if ('content' in document.createElement('template')) {
         const templ = document.querySelector('.template');
         const div = templ.content.querySelectorAll('div');
@@ -113,7 +109,6 @@ function addDefaultCard() { // card add default
 }
 
 function togglePopup() { // close\open popup
-
     function toggPopupAddCard() {
         const popup = document.querySelector('.popup-addCard');
         popup.classList.toggle('popup_is-opened');
@@ -146,19 +141,22 @@ function addCustomCard(evt) { // card add custom
     toggPopup.toggPopupAddCard();
 }
 
-function editUserProfile(e) { //---------------------------------------------------------
+function editUserProfile(e) { // set name/job
     e.preventDefault();
 
     const form = document.forms.second;
     const yourName = form.elements.yourName;
     const aboutYou = form.elements.aboutYou;
-
-    form.reset();
+    const userInfoName = document.querySelector('.user-info__name');
+    const userInfoData = document.querySelector('.user-info__job');
+    
+    userInfoName.textContent = yourName.value;
+    userInfoData.textContent = aboutYou.value;
+    
     toggPopup.toggPopupEditProfile();
 }
 
 function formBtnState() {
-
     function active(btn) {
         btn.removeAttribute('disabled');
         btn.style.cursor = 'pointer';
@@ -185,12 +183,10 @@ popupAddBtn.addEventListener('click', toggPopup.toggPopupAddCard);
 popupCloseBtnAdd.addEventListener('click', toggPopup.toggPopupAddCard);
 popupEditProfileBtn.addEventListener('click', toggPopup.toggPopupEditProfile);
 popupCloseBtnEdit.addEventListener('click', toggPopup.toggPopupEditProfile);
-
 document.forms.new.addEventListener('submit', addCustomCard);
 document.forms.second.addEventListener('submit', editUserProfile);
 
 placesList.addEventListener('click', function (event) {
-
     if (event.target.classList.contains('place-card__like-icon')) {
         event.target.classList.toggle('place-card__like-icon_liked'); // like card
     }
@@ -201,7 +197,6 @@ placesList.addEventListener('click', function (event) {
 });
 
 form.addEventListener('input', function () {
-
     const name = form.elements.name;
     const link = form.elements.link;
 
@@ -213,7 +208,6 @@ form.addEventListener('input', function () {
 });
 
 formSecond.addEventListener('input', function () {
-
     const yourName = formSecond.elements.yourName;
     const aboutYou = formSecond.elements.aboutYou;
 
